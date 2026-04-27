@@ -1,0 +1,12 @@
+Install apps in Raspberry Pi using domestic mirror in China
+<>bash
+ping -c 4 pypi.tuna.tsinghua.edu.cn 
+
+Update APT source to a Mirror 
+<>Bash
+sudo nano /etc/apt/sources.list
+Replace the content with the 清华大学 (Tsinghua) mirror 
+deb http://tsinghua.edu.cn bookworm main
+Update the package list:
+sudo apt update
+sudo apt upgrade -y
