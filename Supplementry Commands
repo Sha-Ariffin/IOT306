@@ -2,7 +2,7 @@ Install apps in Raspberry Pi using domestic mirror in China
 <>bash
 ping -c 4 pypi.tuna.tsinghua.edu.cn 
 
-Update APT source to a Mirror 
+*Update APT source to a Mirror*
 <>Bash
 sudo nano /etc/apt/sources.list
 Replace the content with the 清华大学 (Tsinghua) mirror 
@@ -10,3 +10,38 @@ deb http://tsinghua.edu.cn bookworm main
 Update the package list:
 sudo apt update
 sudo apt upgrade -y
+
+Install matplotlib from inside China
+<>bash
+python3 -m pip install matplotlib -i https://pypi.tuna.tsinghua.edu.cn/simple --break-system-packages
+Verify installation
+<>Python
+import matplotlib
+print (‘ok’)
+Verify installation
+<>Python
+import cv2
+print(cv2.__version__)
+
+Upgrade pip: Ensure your pip is up-to-date to avoid issues
+<>Bash
+python -m pip install --upgrade pip -i https://tsinghua.edu.cn
+
+#Ensure Prerequisites are Installed 
+sudo apt update
+sudo apt install python3-full
+
+#Creating Virtual Environment
+<>Bash
+python3 -m venv myenv
+
+#Activate environment
+<>Bash
+source myenv/bin/activate
+
+#Install OpenCV from Virtual Environment
+<>Bash
+pip3 install opencv-contrib-python -i https://tsinghua.edu.cn
+
+#Verification in terminal:
+python3 -c "import cv2; print(cv2.__version__)"
